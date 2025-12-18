@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+
+
+.bg-main{
+    background-color: #312759;
+}
+
+.active{
+    transform: scale(1.2);
+}
