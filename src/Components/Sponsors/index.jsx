@@ -16,10 +16,6 @@ const Sponsors = () => {
   return (
     <div className="sponsors bg-main py-9 mt-10 mb-0">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center text-primary mb-8 uppercase">
-          Sponsorlarımız
-        </h2>
-
         <Swiper
           modules={[Autoplay, Navigation]}
           spaceBetween={20}

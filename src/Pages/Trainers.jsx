@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Container from "../Components/Container";
 import axios from "axios";
+import { Link } from "react-router";
 
 const Trainers = () => {
   const endpoint = "http://localhost:3000/coachingStaff";
@@ -28,8 +29,9 @@ const Trainers = () => {
             return (
               <div
                 key={id}
-                className="bg-main p-4 flex flex-col gap-4 items-center rounded-2xl"
+                className="bg-main p-4 flex flex-col gap-4 items-center rounded-2xl relative"
               >
+                <Link to={`/trainer/${id}`} className="absolute inset-0"></Link>
                 <div className="text-center">
                   <h2 className="text-xl text-white font-medium">{name}</h2>
                   <h3 className="text-md text-white">{role}</h3>

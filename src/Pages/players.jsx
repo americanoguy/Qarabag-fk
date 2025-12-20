@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Container from "../Components/Container";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Players = () => {
   const endpoint = "http://localhost:3000/players";
@@ -60,10 +61,14 @@ const Players = () => {
                   return (
                     <div
                       key={number}
-                      className="bg-main p-4 flex flex-col gap-4 rounded-2xl"
+                      className="bg-main p-4 flex flex-col gap-4 rounded-2xl relative"
                     >
+                      <Link
+                        to={`/player/${number}`}
+                        className="absolute inset-0"
+                      ></Link>
                       <div className="flex items-start gap-4">
-                        <span className="text-5xl font-bold text-white ">
+                        <span className="text-5xl font-bold text-white">
                           {number}
                         </span>
                         <div className="flex flex-col">

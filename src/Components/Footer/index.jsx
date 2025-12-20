@@ -7,7 +7,7 @@ import { Phone } from "lucide-react";
 import { MailOpen } from "lucide-react";
 const Footer = () => {
   return (
-    <div className="grid grid-cols-3 mt-2">
+    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 mt-2">
       <div className="left flex flex-col items-center justify-center gap-3">
         <h2 className="text-2xl uppercase text-primary font-bold">
           Qarabag FK sosial şəbəkələrdə
