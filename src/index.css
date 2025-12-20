@@ -9,3 +9,11 @@
 .active{
     transform: scale(1.2);
 }
+
+.text-primary{
+    color: #312759;
+}
+
+.iconactive{
+    background-color: #312759;
+}

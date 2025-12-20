@@ -5,24 +5,39 @@ import { useState } from "react";
 
 const Navbar = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [search, setSearch] = useState("");
 
   return (
-    <header className="bg-main text-white sticky z-50">
+    <header className="bg-main text-white sticky top-0 z-10">
       <Container>
         <nav className="flex items-center justify-between py-2 relative">
           <Link to="/" className="flex items-center gap-3">
             <img src="/logo.png" alt="logo" className="w-14" />
             <p className="uppercase font-semibold">Qarabag FK</p>
           </Link>
+          <input
+            type="text"
+            placeholder="Axtar..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="hidden md:block px-4 py-2 rounded bg-white/10 text-white outline-none"
+          />
+
           <div className="hidden md:flex items-center gap-6">
             <NavLink to="/">Ana səhifə</NavLink>
             <div className="relative group">
               <span className="cursor-pointer">Komanda</span>
-              <div className="absolute top-full mt-1 w-36 bg-white shadow-md rounded-md flex flex-col invisible group-hover:visible">
-                <NavLink className="text-slate-800 px-4 py-2 text-xs hover:bg-slate-200">
+              <div className="absolute top-full w-36 bg-white shadow-md rounded-md flex flex-col invisible group-hover:visible">
+                <NavLink
+                  className="text-slate-800 px-2 py-5 text-xs hover:bg-slate-200"
+                  to={"/trainers"}
+                >
                   Məşqçilər
                 </NavLink>
-                <NavLink className="text-slate-800 px-4 py-2 text-xs hover:bg-slate-200">
+                <NavLink
+                  className="text-slate-800 px-2 py-5 text-xs hover:bg-slate-200"
+                  to={"/players"}
+                >
                   Oyunçular
                 </NavLink>
               </div>
