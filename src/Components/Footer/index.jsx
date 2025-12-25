@@ -66,7 +66,7 @@ const Footer = () => {
       </div>
       <div className="copyright bg-main text-white text-center py-2 col-span-3 flex justify-between px-3">
         <p>Copyright©2025</p>
-        <p>Bütün hüquqlar qorunur Webcoder</p>
+        <p>Bütün hüquqlar qorunur FS-41</p>
       </div>
     </div>
   );

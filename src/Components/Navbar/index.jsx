@@ -1,12 +1,26 @@
 import Container from "../Container";
 import { Link, NavLink } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Navbar = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-  const [search, setSearch] = useState("");
+  const [searchValue, setSearchValue] = useState("");
+  const [data, setData] = useState([]);
 
+  useEffect(() => {
+    if (searchValue.trim()) {
+      axios("http://localhost:3000/searchdata").then((res) => {
+        if (res.status === 200) {
+          const filteredData = res.data.filter(({ name }) =>
+            name.toLowerCase().includes(searchValue.trim().toLowerCase())
+          );
+          setData(filteredData);
+        }
+      });
+    }
+  }, [searchValue]);
   return (
     <header className="bg-main text-white sticky top-0 z-10">
       <Container>
@@ -15,13 +29,20 @@ const Navbar = () => {
             <img src="/logo.png" alt="logo" className="w-14" />
             <p className="uppercase font-semibold">Qarabag FK</p>
           </Link>
-          <input
-            type="text"
-            placeholder="Axtar..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="hidden md:block px-4 py-2 rounded bg-white/10 text-white outline-none"
-          />
+          <div className="relative">
+            <input
+              type="search"
+              placeholder="Axtar..."
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+              className="hidden md:block px-4 py-2 rounded bg-white/10 text-white outline-none"
+            />
+            <div className="bg-purple-600 text-white p-2 mt-1 flex flex-col absolute w-full ">
+              {data.map(({ name }) => {
+                return <Link>{name}</Link>;
+              })}
+            </div>
+          </div>
 
           <div className="hidden md:flex items-center gap-6">
             <NavLink to="/">Ana səhifə</NavLink>

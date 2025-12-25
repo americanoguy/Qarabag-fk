@@ -57,14 +57,14 @@ const Players = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {groupedPlayers[position].map(
-                ({ name, image, position: pos, number }) => {
+                ({ name, image, position: pos, id, number }) => {
                   return (
                     <div
                       key={number}
                       className="bg-main p-4 flex flex-col gap-4 rounded-2xl relative"
                     >
                       <Link
-                        to={`/player/${number}`}
+                        to={`/player/${id}`}
                         className="absolute inset-0"
                       ></Link>
                       <div className="flex items-start gap-4">
